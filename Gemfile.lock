@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://ruby.taobao.org/
   specs:
     binding_of_caller (0.7.1)
       debug_inspector (>= 0.0.1)
@@ -67,12 +67,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  haml (~> 4.0.2)
+  haml
   pry
   pry-debugger
   pry-nav
   pry-stack_explorer
-  sass (~> 3.2.8)
-  sinatra (~> 1.4.2)
+  sass
+  sinatra
   time_ago_in_words (~> 0.1.0)
-  weibo_2 (~> 0.1.4)
+  weibo_2

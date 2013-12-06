@@ -6,9 +6,11 @@ Bundler.require
 
 enable :sessions
 
-WeiboOAuth2::Config.api_key = ENV['KEY']
-WeiboOAuth2::Config.api_secret = ENV['SECRET']
-WeiboOAuth2::Config.redirect_uri = ENV['REDIR_URI']
+$config = YAML.load_file(File.join(File.dirname(__FILE__), 'config', 'weibo.yml')) rescue {}
+
+WeiboOAuth2::Config.api_key = ENV['KEY']||$config[:app_key]
+WeiboOAuth2::Config.api_secret = ENV['SECRET']||$config[:app_secret]
+WeiboOAuth2::Config.redirect_uri = ENV['REDIR_URI']||$config[:callback_url]
 
 get '/' do
   client = WeiboOAuth2::Client.new

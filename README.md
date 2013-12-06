@@ -1,11 +1,11 @@
-weibo_2_example
-===============
+Fun with Sina weibo
+===================
 
-A example for [weibo_2](https://github.com/simsicon/weibo_2).
+Learnd and make fun from [example](https://github.com/simsicon/weibo_2_example)
 
 ## Basic Usage
 
-The [example](https://github.com/simsicon/weibo_2_example) written with sinatra shows how to ask for oauth2 permission, get the token and send status with picture. It should cover basic usage in all ruby apps. You can run your own demo!
+The  written with sinatra shows how to ask for oauth2 permission, get the token and send status with picture. It should cover basic usage in all ruby apps. You can run your own demo!
 
 ```bash
 $ KEY=change_this_to_your_key SECRET=change_this_to_your_secret REDIR_URI=change_this_to_your_redir_uri ruby example.rb
