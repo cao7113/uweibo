@@ -15,7 +15,7 @@ Welcome contact with me!
 
 write a local token file for cli access in callback action
 
-HowTo: 
+How to play it in console: 
 
 * config hosts: 
 
