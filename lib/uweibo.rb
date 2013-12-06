@@ -14,13 +14,16 @@ WeiboOAuth2::Config.api_secret = ENV['SECRET']||$config[:app_secret]
 WeiboOAuth2::Config.redirect_uri = ENV['REDIR_URI']||$config[:callback_url]
 
 module Uweibo
-  def self.my_client(id='1809866795')
+  def self.my_client(uid='1809866795')
     return @client if @client
     @client = WeiboOAuth2::Client.new
-    token_file = File.join($tmp_root, "token_#{id}.yml")
-    raise "First request a token file: #{token_file} at http://weiboapp.lh:9888" unless File.exists?(token_file)
-    token_config = YAML.load_file(token_file)
-    atoken = @client.get_token_from_hash(token_config)
+    @client.get_token_from_hash(token_hash(uid))
     @client
+  end
+
+  def self.token_hash(uid='1809866795')
+    token_file = File.join($tmp_root, "token_#{uid}.yml")
+    raise "First request a token file: #{token_file} at http://weiboapp.lh:9888" unless File.exists?(token_file)
+    YAML.load_file(token_file)
   end
 end
