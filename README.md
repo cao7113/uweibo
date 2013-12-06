@@ -3,6 +3,14 @@ Fun with Sina weibo
 
 Learnd and make fun from [example](https://github.com/simsicon/weibo_2_example)
 
+Yes, you indeed just need a [sina weibo account](http://weibo.com), other things have been handled for you or weibo api beginers!
+
+Freely extend when needed!
+
+Hehe, I am http://weibo.com/cao7113, happily with http://shareup.me
+
+Welcome contact with me!
+
 ## Fun part
 
 write a local token file for cli access in callback action
@@ -33,11 +41,6 @@ run: `bundle console`, get a valid weibo client by: Uweibo.my_client
 ```
 Uweibo.my_client.statuses.public_timeline
 ```
-
-Hehe, I am http://weibo.com/cao7113, happily with http://shareup.me
-
-Welcome contact with me!
-
 
 ===================================================================
 Note: Below is copied from original repository, maybe not invalid!!!
