@@ -1,12 +1,19 @@
 # encoding: utf-8
 
+require 'fileutils'
+require 'yaml'
 require 'rubygems'
 require 'bundler'
 Bundler.require
 
 enable :sessions
 
-$config = YAML.load_file(File.join(File.dirname(__FILE__), 'config', 'weibo.yml')) rescue {}
+$app_root = File.dirname(__FILE__)
+
+$tmp_root = File.join($app_root, 'tmp')
+FileUtils.mkdir_p($tmp_root) unless File.directory?($tmp_root)
+
+$config = YAML.load_file(File.join($app_root, 'config', 'weibo.yml')) rescue {}
 
 WeiboOAuth2::Config.api_key = ENV['KEY']||$config[:app_key]
 WeiboOAuth2::Config.api_secret = ENV['SECRET']||$config[:app_secret]
@@ -26,11 +33,10 @@ get '/' do
       return
     end
   end
+
   if session[:uid]
     @user = client.users.show_by_uid(session[:uid]) 
     @statuses = client.statuses
-    binding.pry
-    @friends_ids =  client.friends_ids
   end
   haml :index
 end
@@ -48,6 +54,11 @@ get '/callback' do
   session[:expires_at] = access_token.expires_at
   p "*" * 80 + "callback"
   p access_token.inspect
+  #TODO 写个独立自动程序完成这个
+  token_file = File.join($tmp_root, "tokens_#{session[:uid]}.yml")
+  unless File.exists?(token_file)
+    File.write(token_file, {access_token: session[:access_token], expires_at: session[:expires_at].to_i}.to_yaml)
+  end
   @user = client.users.show_by_uid(session[:uid].to_i)
   redirect '/'
 end

@@ -4,8 +4,13 @@ require 'thor'
 require 'uweibo'
 
 class UweiboCli < Thor
-  desc "test", "hi test"
-  def test
-    puts "====================from cli ..."
+
+  include Thor::Actions
+
+  desc "hi", "hi test"
+  def hi
+    puts "====================Hi from cli ..."
   end
 end
+
+UweiboCli.start

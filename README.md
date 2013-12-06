@@ -63,3 +63,12 @@ It should work.
     pass params[:file] into upload method as options could help weibo_2 to build post body, useful options as:
     *   filename, filename with extension of the uploading file, example 'pic.jpg'
     *   type, mime type of the uploading file, example 'image/jpeg'
+
+
+## Fun part
+
+write a local token file for cli access when callback action
+
+when run: `bundle console`, quick get a valid weibo client by: weibo_client 
+
+Conveniently for development or inspect!!!
