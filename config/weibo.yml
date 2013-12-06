@@ -1,0 +1,6 @@
+---
+#my devapp config
+:app_key: '538732144'
+:app_secret: '43dcba2737bb55baf00ee924601693c1'
+:callback_url: 'http://weiboapp.lh:9888/auth/weibo/callback'
+:cancel_callback_url: 'http://weiboapp.lh:9888/auth/weibo/cancel_callback'
