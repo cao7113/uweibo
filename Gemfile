@@ -1,6 +1,8 @@
 #source 'https://rubygems.org'
 source "http://ruby.taobao.org"
 
+gemspec
+
 gem 'sinatra'
 gem "haml"
 gem "sass"

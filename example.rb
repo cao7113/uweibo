@@ -29,6 +29,8 @@ get '/' do
   if session[:uid]
     @user = client.users.show_by_uid(session[:uid]) 
     @statuses = client.statuses
+    binding.pry
+    @friends_ids =  client.friends_ids
   end
   haml :index
 end
