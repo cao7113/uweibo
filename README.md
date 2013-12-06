@@ -1,9 +1,9 @@
 Fun with Sina weibo
 ===================
 
-Learnd and make fun from [example](https://github.com/simsicon/weibo_2_example)
+Learn and make fun from [example](https://github.com/simsicon/weibo_2_example)
 
-Yes, you indeed just need a [sina weibo account](http://weibo.com), other things have been handled for you or weibo api beginers!
+Yes, you indeed just need a [sina weibo account](http://weibo.com/cao7113), other things have been handled for you or weibo api beginers!
 
 Freely extend when needed!
 
