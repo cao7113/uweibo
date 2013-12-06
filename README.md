@@ -67,8 +67,35 @@ It should work.
 
 ## Fun part
 
-write a local token file for cli access when callback action
+write a local token file for cli access in callback action
 
-when run: `bundle console`, quick get a valid weibo client by: weibo_client 
+HowTo: 
 
-Conveniently for development or inspect!!!
+* config hosts: 
+
+```
+#in file /etc/hosts add
+127.0.0.1 weiboapp.lh
+```
+
+* bundle install
+
+* run a local web server: `rackup -p 9888` #this port is required
+
+* locally visit http://weiboapp.lh:9888, when clicked 'connect' and authorize
+
+get a token file in tmp/tokens_id.yml
+
+* quickly access and inspect weibo api in console:
+
+run: `bundle console`, get a valid weibo client by: weibo_client 
+
+* try interesting apis e.g.
+
+```
+Uweibo.my_client.statuses.public_timeline
+```
+
+Hehe, I am http://weibo.com/cao7113, happily with http://shareup.me
+
+Welcome contact with me!

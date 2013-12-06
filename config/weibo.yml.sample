@@ -1,4 +1,5 @@
 ---
 :app_key: 'your_app_key'
 :app_secret: 'your_app_secret'
-:callback_url: 'http://localhost.dev:9292/callback' #same with sina app
+:callback_url: 'http://weiboapp.lh:9888/auth/weibo/callback' #same with sina app
+:cancel_callback_url: 'http://weiboapp.lh:9888/auth/weibo/cancel_callback'

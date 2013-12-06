@@ -1,23 +1,14 @@
 # encoding: utf-8
-
-require 'fileutils'
-require 'yaml'
 require 'rubygems'
 require 'bundler'
 Bundler.require
 
+require 'fileutils'
+
+$:.unshift File.expand_path(__FILE__)
+require 'uweibo'
+
 enable :sessions
-
-$app_root = File.dirname(__FILE__)
-
-$tmp_root = File.join($app_root, 'tmp')
-FileUtils.mkdir_p($tmp_root) unless File.directory?($tmp_root)
-
-$config = YAML.load_file(File.join($app_root, 'config', 'weibo.yml')) rescue {}
-
-WeiboOAuth2::Config.api_key = ENV['KEY']||$config[:app_key]
-WeiboOAuth2::Config.api_secret = ENV['SECRET']||$config[:app_secret]
-WeiboOAuth2::Config.redirect_uri = ENV['REDIR_URI']||$config[:callback_url]
 
 get '/' do
   client = WeiboOAuth2::Client.new
@@ -46,7 +37,7 @@ get '/connect' do
   redirect client.authorize_url
 end
 
-get '/callback' do
+get '/auth/weibo/callback' do
   client = WeiboOAuth2::Client.new
   access_token = client.auth_code.get_token(params[:code].to_s)
   session[:uid] = access_token.params["uid"]
@@ -55,11 +46,16 @@ get '/callback' do
   p "*" * 80 + "callback"
   p access_token.inspect
   #TODO 写个独立自动程序完成这个
-  token_file = File.join($tmp_root, "tokens_#{session[:uid]}.yml")
+  token_file = File.join($tmp_root, "token_#{session[:uid]}.yml")
   unless File.exists?(token_file)
     File.write(token_file, {access_token: session[:access_token], expires_at: session[:expires_at].to_i}.to_yaml)
   end
   @user = client.users.show_by_uid(session[:uid].to_i)
+  redirect '/'
+end
+
+get '/auth/weibo/cancel_callback' do
+  puts "Cancel authorizations..........."
   redirect '/'
 end
 
