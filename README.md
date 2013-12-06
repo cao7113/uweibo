@@ -36,7 +36,7 @@ get a token file in tmp/tokens_id.yml
 
 run: `bundle console`, get a valid weibo client by: Uweibo.my_client 
 
-* try interesting apis in yourself e.g.
+* try interesting apis by yourself e.g.
 
 ```
 Uweibo.my_client.statuses.public_timeline

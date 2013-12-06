@@ -18,7 +18,7 @@ module Uweibo
     return @client if @client
     @client = WeiboOAuth2::Client.new
     token_file = File.join($tmp_root, "token_#{id}.yml")
-    raise "First request a token file: #{token_file}" unless File.exists?(token_file)
+    raise "First request a token file: #{token_file} at http://weiboapp.lh:9888" unless File.exists?(token_file)
     token_config = YAML.load_file(token_file)
     atoken = @client.get_token_from_hash(token_config)
     @client
