@@ -32,7 +32,8 @@ end
 
 get '/connect' do
   client = WeiboOAuth2::Client.new
-  redirect client.authorize_url
+  #应用认证之后 redirect_uri的path就可以和注册的不一样啦？神奇
+  redirect client.authorize_url #(redirect_uri: "http://xxx.com/callback1")
 end
 
 get '/auth/weibo/callback' do

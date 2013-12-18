@@ -1,2 +1,2 @@
-require './example.rb'
+require './web.rb'
 run Sinatra::Application

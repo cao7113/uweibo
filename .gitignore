@@ -19,3 +19,4 @@ doc/
 
 .sass-cache/
 
+config/weibo.yml

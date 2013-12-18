@@ -5,7 +5,9 @@ require 'fileutils'
 require 'weibo_2'
 
 $app_root = File.expand_path("../..", __FILE__)
-$config = YAML.load_file(File.join($app_root, 'config', 'weibo.yml')) rescue {}
+#rackup -e 启动时是设置的 RACK_ENV??
+$env = ENV['RACK_ENV']||'development'
+$config = YAML.load_file(File.join($app_root, 'config', 'weibo.yml'))[$env.to_sym] #rescue {}
 $tmp_root = File.join($app_root, 'tmp')
 FileUtils.mkdir_p($tmp_root) unless File.directory?($tmp_root)
 

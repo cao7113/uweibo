@@ -7,6 +7,7 @@
   %body
     %h2="weibo oauth2 api example"
     %a{:href => (session[:uid] ? "/logout" : "/connect")}=(session[:uid] ? "logout" : "connect")
+    %p= @msg
     = yield
   %footer
     %h6="http://github.com/simsicon/weibo_2"
