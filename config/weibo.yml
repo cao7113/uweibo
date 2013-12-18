@@ -7,8 +7,8 @@
 
 :test:
   :app_key: '2154274819'
-  :app_secret: 74e4428b7ed95bf47317ee31075ea802 
+  :app_secret: '74e4428b7ed95bf47317ee31075ea802'
   :callback_url: 'http://www.tianji.com/auth/weibo/callback'
 
 :production: 
-  << *development
+  <<: *development
