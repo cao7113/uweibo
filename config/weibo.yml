@@ -6,9 +6,10 @@
   :cancel_callback_url: 'http://weiboapp.lh:9888/auth/weibo/cancel_callback'
 
 :test:
-  :app_key: '2154274819'
-  :app_secret: '74e4428b7ed95bf47317ee31075ea802'
-  :callback_url: 'http://www.tianji.com/auth/weibo/callback'
+  <<: *development
 
 :production: 
-  <<: *development
+  :app_key: '538732144'
+  :app_secret: '43dcba2737bb55baf00ee924601693c1'
+  :callback_url: 'http://weiboapp.lh/auth/weibo/callback'
+  :cancel_callback_url: 'http://weiboapp.lh/auth/weibo/cancel_callback'
